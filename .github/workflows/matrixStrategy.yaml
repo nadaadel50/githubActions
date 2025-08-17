@@ -1,0 +1,26 @@
+name: Matrix Strategy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  matrix:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, ubuntu-20.04, ubuntu-22.04]
+        node: [16, 18]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Run commands
+        run: |
+          echo "Running on OS: ${{ matrix.os }}"
+          echo "Node version: ${{ matrix.node }}"
+          echo "Hello from matrix job!"
