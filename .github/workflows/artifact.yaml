@@ -13,7 +13,7 @@ jobs:
       - name: execute cowsay CMD
         run: cowsay -f dragon "Run for cover, I am a Dragon... .RAWr" > dragon.txt
       - name: upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dragon-file
           path: dragon.txt
@@ -23,7 +23,7 @@ jobs:
     needs: build_job
     steps:
       - name: download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dragon-file
       - name: test file Exists
