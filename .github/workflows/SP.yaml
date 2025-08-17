@@ -9,7 +9,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: List files
-        run: ls -la
+      - name: Checkout
+        uses: actions/checkout@v5.0.0
+        
       - name: Run script
         run: ./script.sh
